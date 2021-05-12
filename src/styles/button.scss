@@ -1,0 +1,36 @@
+.button {
+    padding: 0.5rem;
+    margin: 0.3rem;
+    min-width: 40px;
+    font-family: $content-font;
+    font-size: $small-font;
+    border-radius: 0.2rem;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+
+    &__primary {
+        background-color: $orange;
+        color: $white;
+        &:hover {
+            background-color: $grey;
+        }
+        &:active {
+            transform: translateY(2px);
+        }
+    }
+
+    &__secondary {
+        background-color: $grey;
+        color: $white;
+        &:hover {
+            background-color: $orange;
+        }
+        &:active {
+            transform: translateY(2px);
+        }
+    }
+}
+
+
+

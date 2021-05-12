@@ -1,0 +1,18 @@
+.header_text{
+    font-size: $header-font;
+    font-family: $title-font;
+}
+
+.title_text {
+    font-size: $large-font;
+    font-family: $title-font;
+}
+
+.paragraph_text {
+    font-size: $medium-font;
+    font-family: $content-font;
+
+    &--small {
+        font-size: $small-font;
+    }
+}

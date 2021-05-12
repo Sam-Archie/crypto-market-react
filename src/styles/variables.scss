@@ -1,3 +1,20 @@
+@font-face {
+    font-family: "Playfair Display";
+    src: url('../assets/fonts/PlayfairDisplay-Regular.ttf')format("truetype");
+}
+
+@font-face {
+    font-family: "Playfair Display Medium";
+    src: url('../assets/fonts/PlayfairDisplay-Medium.ttf')format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url('../assets/fonts/Raleway-Medium.ttf')format("truetype");
+}
+
+
+
 // Colours
 
 $orange: #ec8c19;
@@ -7,15 +24,15 @@ $white: #fff;
 
 // Fonts
 
-// $title-font:
-// $content-font:
+$content-font: 'Raleway';
+$title-font: 'Playfair Display', serif;
 
 // Font Sizing
 
-// $header-font:
-// $large-font: 
-// $medium-font:
-// $small-font:
+$header-font: 4.5rem;
+$large-font: 3rem;
+$medium-font: 2rem;
+$small-font: 1rem;
 
 
 // Breakpoints
