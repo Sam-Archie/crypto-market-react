@@ -7,8 +7,7 @@ const applciationCarousel = (coinList) => {
     return (
    <>
        <Carousel>
-           {coinList.map((coin, index) => (
-
+           {coinList.props.map((coin, index) => (
                <Carousel.Item key={ index }>
                    <Image src="https://place-puppy.com/300x300" />
                 <Carousel.Caption>
