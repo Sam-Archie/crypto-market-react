@@ -8,7 +8,13 @@
     font-family: $title-font;
     &--small {
         font-size: $medium-font;
-    } 
+    }
+    &--hero {
+        position: absolute;
+        z-index: 1;
+        margin: 10%;
+        color: $off-white;
+    }
 }
 
 .paragraph_text {
