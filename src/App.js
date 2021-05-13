@@ -1,11 +1,13 @@
 import './styles/main.scss';
 import { Fragment } from 'react';
-import PatternLib from './PatternLib'
+import NavBar from './components/header/NavBar';
+import Hero from "./components/hero/Hero"
 
 const App = () => {
   return (
     <Fragment>
-      <PatternLib />
+      <NavBar />
+      <Hero />
     </Fragment>
   )
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 import { Nav } from "react-bootstrap";
 
+
 const NavBar = () => {
     return (
-        <Nav as="ul">
-            <Nav.Item as="li">
-                <Nav.Link href="#home">Home</Nav.Link>
+        <Nav justify variant="tabs" defaultActiveKey="/home">
+            <Nav.Item>
+                <Nav.Link className="title_text title_text--small" href="/home">Home</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="#contact-us">Contact Us</Nav.Link>
+                <Nav.Link className="title_text title_text--small"  eventKey="link-1">Contact Us</Nav.Link>
             </Nav.Item>
         </Nav>
     );
