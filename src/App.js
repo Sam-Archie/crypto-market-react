@@ -8,7 +8,7 @@ import Carousel from "./components/carousel/Carousel";
 
 const App = () => {
 
-  const coinList = ["Bitcoin", "Etherium", "Binance Coin", "Tether", "Cardano", "Dogecoin"];
+const coinList = ["Bitcoin", "Etherium", "Binance Coin", "Tether", "Cardano", "Dogecoin"];
 
   return (
     <Fragment>

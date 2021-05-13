@@ -3,16 +3,16 @@ import { CarouselItem, Button, Carousel, Image, Modal } from 'react-bootstrap';
 import CoinData from "../coinData/CoinData";
 
 const applciationCarousel = (coinList) => {
- console.log(coinList)
+
     return (
    <>
-       <Carousel>
+       <Carousel className="carousel-application">
            {coinList.props.map((coin, index) => (
-               <Carousel.Item key={ index }>
-                   <Image src="https://place-puppy.com/300x300" />
-                <Carousel.Caption>
-                    <p>{coin}</p>
-                </Carousel.Caption>
+               <Carousel.Item className="flex-column" key={ index }>
+                   <Image className="carousel-images carousel-inner img" src="https://place-puppy.com/300x300" />
+                    <Carousel.Caption>
+                        <p className="paragraph_text">{coin}</p>
+                    </Carousel.Caption>
             </ Carousel.Item>
            ))}
        </Carousel>
