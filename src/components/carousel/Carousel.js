@@ -1,22 +1,24 @@
 import React, { Fragment } from 'react';
-import { CarouselItem, Image, Modal } from 'react-bootstrap';
+import { CarouselItem, Button, Carousel, Image, Modal } from 'react-bootstrap';
+import CoinData from "../coinData/CoinData";
 
-const Carousel = () => {
+const applciationCarousel = (coinList) => {
+ console.log(coinList)
     return (
-   <Fragment>
+   <>
        <Carousel>
-           <Carousel.Item />
-                <Image />
-            <CarouselItem.Caption>
-                <p>Bitcoin</p>
-                <p>Please click for further information</p>
-                <Modal>
+           {coinList.map((coin, index) => (
 
-                </Modal>
-            </CarouselItem.Caption>
+               <Carousel.Item key={ index }>
+                   <Image src="https://place-puppy.com/300x300" />
+                <Carousel.Caption>
+                    <p>{coin}</p>
+                </Carousel.Caption>
+            </ Carousel.Item>
+           ))}
        </Carousel>
-   </Fragment>
+   </>
     );
 };
 
-export default Carousel;
+export default applciationCarousel;

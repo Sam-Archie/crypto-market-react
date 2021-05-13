@@ -7,11 +7,14 @@ import Contact from './components/contact/Contact';
 import Carousel from "./components/carousel/Carousel";
 
 const App = () => {
+
+  const coinList = ["Bitcoin", "Etherium", "Binance Coin", "Tether", "Cardano", "Dogecoin"];
+
   return (
     <Fragment>
       <NavBar />
       <Hero />
-      <Carousel />
+      <Carousel props={ coinList }/>
       <Contact />
       <Footer />
     </Fragment>
