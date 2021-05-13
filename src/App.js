@@ -14,7 +14,7 @@ const coinList = ["Bitcoin", "Etherium", "Binance Coin", "Tether", "Cardano", "D
     <Fragment>
       <NavBar />
       <Hero />
-      <Carousel props={ coinList }/>
+      <Carousel coinList={ coinList }/>
       <Contact />
       <Footer />
     </Fragment>
