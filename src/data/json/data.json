@@ -1,4 +1,4 @@
-export const data = {
+{
     "Meta Data": {
         "1. Information": "Daily Prices and Volumes for Digital Currency",
         "2. Digital Currency Code": "BTC",
