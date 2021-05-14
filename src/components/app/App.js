@@ -14,15 +14,15 @@ const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherDat
   const getDogeCoinDataMethod = getDogeCoinData;
   const getTetherDataMethod = getTetherData;
 
-  useEffect(() => { 
+  // useEffect(() => { 
     
-      getDogeCoinDataMethod();
-      getBitcoinDataMethod();
-      getBinanceCoinDataMethod();
-      getTetherDataMethod();
-      getEthereumDataMethod();
+  //     getDogeCoinDataMethod();
+  //     getBitcoinDataMethod();
+  //     getBinanceCoinDataMethod();
+  //     getTetherDataMethod();
+  //     getEthereumDataMethod();
 
-  }, [getBitcoinDataMethod, getEthereumDataMethod, getDogeCoinDataMethod, getBinanceCoinDataMethod, getTetherDataMethod])
+  // }, [getBitcoinDataMethod, getEthereumDataMethod, getDogeCoinDataMethod, getBinanceCoinDataMethod, getTetherDataMethod])
 
 const coinList = ["Bitcoin", "Ethereum", "Binance Coin", "Tether", "Dogecoin"];
 
