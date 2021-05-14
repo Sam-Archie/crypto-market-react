@@ -1,9 +1,9 @@
 
-const getBitcoin = () => {}
+const loadBitcoin = (state, action) => ({...state, bitcoin: action.payload.data})
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "GET_BITCOIN" : return getBitcoin(state, action);
+        case "LOAD_BITCOIN" : return loadBitcoin(state, action);
         default : return state;
     }
 }
