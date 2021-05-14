@@ -1,10 +1,9 @@
 const inititalState = {
     bitcoin: {},
-    ethrium: {},
+    ethereum: {},
     binanceCoin: {},
     tether: {},
     dogeCoin: {},
-    cardano: {},
 }
 
 export default inititalState;

@@ -6,17 +6,25 @@ import Footer from '../footer/Footer';
 import Contact from '../contact/Contact';
 import Carousel from "../carousel/Carousel";
 
-const App = ({ getBitcoinData }) => {
+const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherData, getDogeCoinData }) => {
 
   const getBitcoinDataMethod = getBitcoinData;
+  const getBinanceCoinDataMethod = getBinanceCoinData;
+  const getEthereumDataMethod = getEthereumData;
+  const getDogeCoinDataMethod = getDogeCoinData;
+  const getTetherDataMethod = getTetherData;
 
   useEffect(() => { 
     
+      getDogeCoinDataMethod();
       getBitcoinDataMethod();
+      getBinanceCoinDataMethod();
+      getTetherDataMethod();
+      getEthereumDataMethod();
 
-  }, [getBitcoinDataMethod])
+  }, [getBitcoinDataMethod, getEthereumDataMethod, getDogeCoinDataMethod, getBinanceCoinDataMethod, getTetherDataMethod])
 
-const coinList = ["Bitcoin", "Etherium", "Binance Coin", "Tether", "Cardano", "Dogecoin"];
+const coinList = ["Bitcoin", "Ethereum", "Binance Coin", "Tether", "Dogecoin"];
 
   return (
     <Fragment>
