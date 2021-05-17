@@ -4,16 +4,14 @@ import { Line } from "react-chartjs-2";
 import { graphicalData } from "../../../common/commonData";
 
 const LineChart = ({ days }) => {
-  
-  console.log(graphicalData.todaysOpeningPrice())
 
   const chartData = {
-      labels: graphicalData.lastNumOfDays(days),
+      labels: graphicalData.filteredDates(days),
       datasets: [
           {
               type: "line",
               label: 'Price',
-              data: graphicalData.lastNumOfPrices(days),
+              data: graphicalData.filteredOpeningPrice(days),
               fill: false,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',

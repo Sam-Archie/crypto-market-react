@@ -21,7 +21,19 @@ const Coin = () => {
               <LineChart days={90}/>
             </Tab>
             </Tabs>
-            <BarChart />     
+            <Tabs
+          onSelect={(key) => setKey(key)}>
+            <Tab eventKey="7" title="7 Days">
+              <BarChart days={7}/>
+            </Tab>
+            <Tab eventKey="30" title="30 Days">
+              <BarChart days={30}/>
+            </Tab>
+            <Tab eventKey="90" title="90 Days">
+              <BarChart days={90}/>
+            </Tab>
+            </Tabs>
+      
           </>
         );
         

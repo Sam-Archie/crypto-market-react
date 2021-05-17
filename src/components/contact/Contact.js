@@ -24,7 +24,7 @@ const Contact = () => {
             message: message,
         }
         e.preventDefault();
-        console.log(data)
+
         // POST the form data via axios
     }
 
