@@ -4,22 +4,19 @@ import { Bar } from "react-chartjs-2"
 
 
 const Coin = () => {
-    
     const today = new Date().toISOString().slice(0, 10)
+
     const timeSeries = ("Time Series (Digital Currency Daily)");
     
     const bitCoin = data[timeSeries];
     
-    const openingPrices = Object.values(bitCoin).map((date) => {
-        return date['1a. open (CNY)']
-    })
+    const openingPrices = Object.values(bitCoin).map((date) => date['1a. open (CNY)'])
     
-    const dates = Object.keys(bitCoin).map(date => {
-        return date;
-    })
+    const last30DaysPrices = openingPrices.filter((date, index) => index >= 970)
+    
+    const dates = Object.keys(bitCoin).map(date => date);
     
     const last30DaysDates = dates.filter((date, index) => index >= 970)
-    const last30DaysPrices = openingPrices.filter((date, index) => index >= 970)
     
     console.log(last30DaysDates)
     console.log(last30DaysPrices)
