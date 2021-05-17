@@ -1,16 +1,19 @@
 
+import { Tab, Tabs } from "react-bootstrap";
 import { Line } from "react-chartjs-2";
 import { graphicalData } from "../../../common/commonData";
 
-const LineChart = () => {
-    
+const LineChart = ({ days }) => {
+  
+  console.log(graphicalData.todaysOpeningPrice())
+
   const chartData = {
-      labels: graphicalData.last30DaysDates,
+      labels: graphicalData.lastNumOfDays(days),
       datasets: [
           {
               type: "line",
               label: 'Price',
-              data: graphicalData.last30DaysPrices,
+              data: graphicalData.lastNumOfPrices(days),
               fill: false,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -25,6 +28,12 @@ const LineChart = () => {
   }
   
   const options = {
+    plugins: {
+        title: {
+        display: true,
+        text: `Todays Opening Price: ${graphicalData.todaysOpeningPrice()} USD`,
+      }
+    },
     scales: {
       yAxes: [
         {
@@ -33,12 +42,22 @@ const LineChart = () => {
           },
         },
       ],
-    },
+
+      x: {
+        ticks: {
+          beginAtZero: true,
+          // maxTicksLimit: 30
+            }
+        }
+    }
+  
   };
           
   return (
       <div>
-          <Line data={chartData} options={options} />
+ 
+        <Line data={chartData} options={options} />
+
       </div>
   );
 };

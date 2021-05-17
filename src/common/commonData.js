@@ -4,13 +4,15 @@ const timeSeries = ("Time Series (Digital Currency Daily)");
 
 const bitCoin = data[timeSeries];
 
-const openingPrices = Object.values(bitCoin).map((date) => date['1b. open (USD)'])
+const openingPrices = Object.values(bitCoin).map((date) => date['1b. open (USD)']);
 
-const last30DaysPrices = openingPrices.filter((date, index) => index < 30).reverse();
+const lastNumOfPrices = (days) => openingPrices.filter((date, index) => index < days).reverse(); 
 
 const dates = Object.keys(bitCoin).map(date => date);
 
-const last30DaysDates = dates.filter((date, index) => index < 30).reverse();
+const lastNumOfDays = (days) => dates.filter((date, index) => index < days).reverse();
+
+const todaysOpeningPrice = () => openingPrices.filter((date, index) => index === 0)
     
 export const graphicalData = {
 
@@ -22,9 +24,9 @@ export const graphicalData = {
 
     dates: Object.keys(bitCoin).map(date => date),
 
-    last30DaysDates: dates.filter((date, index) => index < 30).reverse(),   
-
-    last30DaysPrices: openingPrices.filter((date, index) => index < 30).reverse(),
+    lastNumOfDays: (days) => dates.filter((date, index) => index < days).reverse(),
+    lastNumOfPrices: (days) => openingPrices.filter((date, index) => index < days).reverse(),
+    todaysOpeningPrice: () => openingPrices.filter((date, index) => index === 0),  
 
     openingPrices: Object.values(bitCoin).map((date) => date['1b. open (USD)'])
     
