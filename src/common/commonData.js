@@ -1,50 +1,32 @@
 import { data } from "../data/json/data"
 
+export const coinPrices = () => data[timeSeries()]
 
-const timeSeries = ("Time Series (Digital Currency Daily)");
+export const openingPrices = () => Object.values(coinPrices()).map((date) => date['1b. open (USD)']);
 
-const bitCoin = data[timeSeries];
+export const today = () => new Date().toISOString().slice(0, 10);
 
-const openingPrices = Object.values(bitCoin).map((date) => date['1b. open (USD)']);
+export const timeSeries = () => ("Time Series (Digital Currency Daily)");
 
-const lastNumOfPrices = (days) => openingPrices.filter((date, index) => index < days).reverse(); 
+export const coinInformation = () => data[timeSeries];
 
-const dates = Object.keys(bitCoin).map(date => date);
+export const dates = () => Object.keys(coinPrices()).map(date => date);
 
-const lastNumOfDays = (days) => dates.filter((date, index) => index < days).reverse();
+export const filteredDays = days => dates().filter((date, index) => index < days).reverse();
 
-const todaysOpeningPrice = () => openingPrices.filter((date, index) => index === 0)
-    
-export const graphicalData = {
+export const filteredByDaysOpeningPrice = days => openingPrices().filter((date, index) => index < days).reverse();
 
-    today: new Date().toISOString().slice(0, 10),
-
-    timeSeries: ("Time Series (Digital Currency Daily)"), 
-
-    coinInformation: data[timeSeries],
-
-    dates: Object.keys(bitCoin).map(date => date),
-
-    filteredDates: (days) => dates.filter((date, index) => index < days).reverse(),
-
-    filteredOpeningPrice: (days) => openingPrices.filter((date, index) => index < days).reverse(),
-
-    todaysOpeningPrice: () => openingPrices.filter((date, index) => index === 0),  
-
-    openingPrices: Object.values(bitCoin).map((date) => date['1b. open (USD)'])
-    
-}
+export const todaysOpeningPrice = () => openingPrices().filter((date, index) => index === 0);
  
 export const priceComparison = () => {
-    let ninetyPrices = graphicalData.filteredOpeningPrice(90);
+    let ninetyPrices = filteredByDaysOpeningPrice(90);
     console.log(ninetyPrices)
-
     let colors = ninetyPrices.map((price, index) => {
-        return price[index] < price[index + 1] ? "red" : "green"
+         return +price[index] < +price[index + 1] ? "red" : "green"
     })
-    return colors
+    
 
-
+    console.log(colors)
     // let colors = [];
 
     // for(let i = openingPrices.length; i <= openingPrices.length && i > 910; i -= 1)
