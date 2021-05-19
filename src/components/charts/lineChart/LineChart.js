@@ -1,5 +1,6 @@
 import { Line } from "react-chartjs-2";
-import { dateFilteredOpeningPrices, filteredDatesByDays, todaysOpeningPrice } from "../../../common/commonData";
+import { Provider } from "react-redux";
+import { borderColors, dateFilteredOpeningPrices, filteredDatesByDays, graphColors, todaysOpeningPrice } from "../../../common/commonData";
 
 const LineChart = ({ days }) => {
 
@@ -8,16 +9,12 @@ const LineChart = ({ days }) => {
       datasets: [
           {
               type: "line",
-              label: 'Price',
+              label: false,
               data: dateFilteredOpeningPrices(days),
               fill: false,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                ],
+              backgroundColor: borderColors(days),
                 borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
+                  "lightgrey"
                 ],
           }
       ]
@@ -27,8 +24,11 @@ const LineChart = ({ days }) => {
     plugins: {
         title: {
         display: true,
-        text: `Todays Opening Price: ${todaysOpeningPrice()} USD`,
-      }
+        text: `Todays Opening Price: ${+todaysOpeningPrice()} USD`,
+      },
+      legend: {
+        display: false
+      },
     },
     scales: {
       yAxes: [
@@ -37,22 +37,34 @@ const LineChart = ({ days }) => {
             beginAtZero: true,
           },
         },
+        {
+          scaleLabel: {
+          display: true,
+          labelString: 'USD'
+        },
+        }
       ],
-
-      x: {
+      
+      xAxes: [
+        {
         ticks: {
           beginAtZero: true,
             }
+        },
+        {
+          scaleLabel: {
+          display: true,
+          labelString: 'Dates'
+        },
         }
+      ]
     }
   
   };
           
   return (
       <div>
- 
         <Line data={chartData} options={options} />
-
       </div>
   );
 };

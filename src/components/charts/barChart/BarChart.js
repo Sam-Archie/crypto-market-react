@@ -13,7 +13,7 @@ const BarChart = ({ days }) => {
               data: dateFilteredOpeningPrices(days),
               backgroundColor: graphColors(days),
               borderColor: borderColors(days),
-                borderWidth: 1,
+              borderWidth: 1,
           }
       ]
   }
@@ -34,8 +34,8 @@ const BarChart = ({ days }) => {
           text: 'A Chart of Bars',
         },
         legend: {
-          position: 'right',
-        },
+        display: false
+      },
       },
     };
           
