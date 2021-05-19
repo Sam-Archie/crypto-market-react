@@ -7,24 +7,34 @@ import Contact from '../contact/Contact';
 import Carousel from "../carousel/Carousel";
 import { coinInfo } from "../../data/coinInfo/CoinInfo";
 
-const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherData, getDogeCoinData }) => {
+const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherData, getDogeCoinData, getBitcoinHealth, getBinanceCoinHealth, getEthereumHealth, getDogeCoinHealth, getTetherHealth }) => {
 
-  const getBitcoinDataMethod = getBitcoinData;
-  const getBinanceCoinDataMethod = getBinanceCoinData;
-  const getEthereumDataMethod = getEthereumData;
-  const getDogeCoinDataMethod = getDogeCoinData;
-  const getTetherDataMethod = getTetherData;
+  // const getBitcoinDataMethod = getBitcoinData;
+  // const getBinanceCoinDataMethod = getBinanceCoinData;
+  // const getEthereumDataMethod = getEthereumData;
+  // const getDogeCoinDataMethod = getDogeCoinData;
+  // const getTetherDataMethod = getTetherData;
 
-  console.log(coinInfo)
+  // const getBitcoinHealthMethod = getBitcoinHealth;
+  // const getBinanceCoinHealthMethod = getBinanceCoinHealth;
+  // const getEthereumHealthMethod = getEthereumHealth;
+  // const getDogeCoinHealthMethod = getDogeCoinHealth;
+  // const getTetherHealthMethod = getTetherHealth;
+
   // useEffect(() => { 
     
-  //     getDogeCoinDataMethod();
-  //     getBitcoinDataMethod();
-  //     getBinanceCoinDataMethod();
-  //     getTetherDataMethod();
-  //     getEthereumDataMethod();
+  // getDogeCoinDataMethod();
+  // getBitcoinDataMethod();
+  // getBinanceCoinDataMethod();
+  // getTetherDataMethod();
+  // getEthereumDataMethod();
+  // getBitcoinHealthMethod();
+  // getBinanceCoinHealthMethod();
+  // getEthereumHealthMethod();
+  // getDogeCoinHealthMethod();
+  // getTetherHealthMethod();
 
-  // }, [getBitcoinDataMethod, getEthereumDataMethod, getDogeCoinDataMethod, getBinanceCoinDataMethod, getTetherDataMethod])
+  // }, [getBitcoinDataMethod, getEthereumDataMethod, getDogeCoinDataMethod, getBinanceCoinDataMethod, getTetherDataMethod, getBitcoinHealthMethod , getBinanceCoinHealthMethod, getEthereumHealthMethod, getDogeCoinHealthMethod, getTetherHealthMethod])
 
   return (
     <Fragment>

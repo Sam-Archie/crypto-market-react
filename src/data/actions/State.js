@@ -33,3 +33,25 @@ export const loadDogeCoin = (data) => {
     }
 }
 
+export const loadBitcoinHealth = data => {
+    return {
+        type: "LOAD_BITCOIN_HEALTH",
+        payload: data
+    }
+}
+
+export const loadEthereumHealth = data => {
+    return {
+        type: "LOAD_ETHEREUM_HEALTH",
+        payload: data
+    }
+}
+
+export const loadBinanceCoinHealth = data => {
+    return {
+        type: "LOAD_BINANCECOIN_HEALTH",
+        payload: data
+    }
+}
+
+

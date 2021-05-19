@@ -1,5 +1,5 @@
 // import axios from "../../axios"
-// import { loadBitcoin, loadBinanceCoin, loadDogeCoin, loadEthereum, loadTether } from "./State"
+// import { loadBitcoin, loadBinanceCoin, loadDogeCoin, loadEthereum, loadTether, loadBitcoinHealth } from "./State"
 
 // export const getBitcoinDataAction = () => {
 //     return (dispatch) => {
@@ -46,6 +46,16 @@
 //         .then(({ data }) => {
 //             dispatch(loadTether({data}))
 //         })
+//     }
+// }
+
+// export const getBitcoinHealthAction = () => {
+//     return (dispatch) => {
+//         axios.get("query?function=CRYPTO_RATING&symbol=BTC&apikey=FT8LTPYM6HXLP8GP")
+//         .then(({ data }) => {
+//             dispatch(loadBitcoinHealth({ data }))
+//             console.log(data)
+//         }) 
 //     }
 // }
 
