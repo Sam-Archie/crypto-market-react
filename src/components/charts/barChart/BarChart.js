@@ -1,16 +1,16 @@
 import { data } from '../../../data/json/data';
 import { Bar } from "react-chartjs-2";
-import { filteredByDaysOpeningPrice, filteredDays, graphColors, borderColors } from "../../../common/commonData";
+import { dateFilteredOpeningPrices, filteredDatesByDays, graphColors, borderColors } from "../../../common/commonData";
 
 const BarChart = ({ days }) => {
 
 
   const chartData = {
-      labels: filteredDays(days),
+      labels: filteredDatesByDays(days),
       datasets: [
           {
               label: 'Price',
-              data: filteredByDaysOpeningPrice(days),
+              data: dateFilteredOpeningPrices(days),
               backgroundColor: graphColors(days),
               borderColor: borderColors(days),
                 borderWidth: 1,
