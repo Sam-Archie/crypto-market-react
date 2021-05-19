@@ -1,5 +1,3 @@
-
-import { Tab, Tabs } from "react-bootstrap";
 import { Line } from "react-chartjs-2";
 import { dateFilteredOpeningPrices, filteredDatesByDays, todaysOpeningPrice } from "../../../common/commonData";
 

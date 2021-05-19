@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
@@ -31,7 +30,7 @@ const Contact = () => {
 
 
     return (
-        <section className="container flex flex-column" >
+        <section id="contact" className="container flex flex-column" >
         <h2 className="title_text title_text--small mt-4">Contact Us</h2>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="firstName" className="mt-4">
@@ -72,7 +71,7 @@ const Contact = () => {
                     onChange={handleMessage}/>
             </Form.Group>
             <Button 
-                className="mt-4 mb-4" 
+                className="mt-4 mb-4 button button__primary" 
                 variant="secondary" 
                 type="submit"
             >Submit</Button>

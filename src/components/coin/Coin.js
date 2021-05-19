@@ -1,4 +1,4 @@
-import { Tabs, Tab, Nav } from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
 import { useState } from 'react';
 import BarChart from '../charts/barChart/BarChart';
 import LineChart from '../charts/lineChart/LineChart';
