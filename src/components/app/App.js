@@ -5,6 +5,7 @@ import Hero from "../hero/Hero";
 import Footer from '../footer/Footer';
 import Contact from '../contact/Contact';
 import Carousel from "../carousel/Carousel";
+import { coinInfo } from "../../data/coinInfo/CoinInfo";
 
 const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherData, getDogeCoinData }) => {
 
@@ -14,6 +15,7 @@ const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherDat
   const getDogeCoinDataMethod = getDogeCoinData;
   const getTetherDataMethod = getTetherData;
 
+  console.log(coinInfo)
   // useEffect(() => { 
     
   //     getDogeCoinDataMethod();
@@ -24,13 +26,11 @@ const App = ({ getBitcoinData, getBinanceCoinData, getEthereumData, getTetherDat
 
   // }, [getBitcoinDataMethod, getEthereumDataMethod, getDogeCoinDataMethod, getBinanceCoinDataMethod, getTetherDataMethod])
 
-const coinList = ["Bitcoin", "Ethereum", "Binance Coin", "Tether", "Dogecoin"];
-
   return (
     <Fragment>
       <NavBar />
       <Hero />
-      <Carousel coinList={ coinList }/>
+      <Carousel coinList={ coinInfo }/>
       <Contact />
       <Footer />
     </Fragment>
