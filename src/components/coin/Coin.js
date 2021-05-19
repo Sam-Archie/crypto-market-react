@@ -3,12 +3,15 @@ import { useState } from 'react';
 import BarChart from '../charts/barChart/BarChart';
 import LineChart from '../charts/lineChart/LineChart';
 
-const Coin = () => {
+const Coin = ({info}) => {
 
   const [key, setKey] = useState("line")
 
     return (
           <>
+          <p className="paragraph_text--small">
+              {info}
+          </p>
           <Tabs
           onSelect={(key) => setKey(key)}>
             <Tab eventKey="7" title="7 Days">

@@ -1,7 +1,8 @@
 .carousel-application {
-    background-color: grey;
+    background-color: black;
 }
 
-.carousel-inner img {
+.carousel-inner {
   margin: auto;
+  max-height: 100vh;
 }

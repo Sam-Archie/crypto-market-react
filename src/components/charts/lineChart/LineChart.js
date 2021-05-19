@@ -42,7 +42,6 @@ const LineChart = ({ days }) => {
       x: {
         ticks: {
           beginAtZero: true,
-          // maxTicksLimit: 30
             }
         }
     }

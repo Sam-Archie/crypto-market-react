@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Carousel, Image } from 'react-bootstrap';
 import CoinModal from "../coinModal/CoinModal";
 
-const applciationCarousel = ({coinList}) => {
+const applciationCarousel = ({ coinList }) => {
 
     return (
    <section id="coins">
        <Carousel className="carousel-application">
-           {coinList.map((coin, index) => (
+           {coinList.map((coin, index) => ( 
                <Carousel.Item className="flex-column" key={ index }>
-                   <Image className="carousel-images carousel-inner img" src="https://place-puppy.com/300x300" />
+                   <Image className="carousel-inner" src={coin.imagePath} />
                     <Carousel.Caption>
-                        <p className="title_text">{coin}</p>
+                        <p className="title_text">{coin.name}</p>
+                        <CoinModal coin={coin.name} info={coin.info}/>
                     </Carousel.Caption>
-                    <CoinModal coin={coin}/>
             </ Carousel.Item>
            ))}
        </Carousel>
