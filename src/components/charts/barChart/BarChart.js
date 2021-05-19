@@ -1,6 +1,6 @@
 import { data } from '../../../data/json/data';
 import { Bar } from "react-chartjs-2";
-import { filteredByDaysOpeningPrice, priceComparison, filteredDays } from "../../../common/commonData";
+import { filteredByDaysOpeningPrice, filteredDays, graphColors, borderColors } from "../../../common/commonData";
 
 const BarChart = ({ days }) => {
 
@@ -11,11 +11,8 @@ const BarChart = ({ days }) => {
           {
               label: 'Price',
               data: filteredByDaysOpeningPrice(days),
-              backgroundColor: priceComparison(),
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                ],
+              backgroundColor: graphColors(days),
+              borderColor: borderColors(days),
                 borderWidth: 1,
           }
       ]

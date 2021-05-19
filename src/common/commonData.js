@@ -18,27 +18,34 @@ export const filteredByDaysOpeningPrice = days => openingPrices().filter((date, 
 
 export const todaysOpeningPrice = () => openingPrices().filter((date, index) => index === 0);
  
-export const priceComparison = () => {
+export const graphColors = (days) => {
 
-       let ninetyPrices = filteredByDaysOpeningPrice(91);
-       console.log(ninetyPrices)
+       let ninetyPrices = filteredByDaysOpeningPrice(days + 1);
     const colors = ninetyPrices.map((price, index) =>  {
-        if (index === 0) return "green";
-        console.log(+price)
-        return +ninetyPrices[index - 1] < +price ? "red" : "green"
+        if (index === 0) return;
+        return +ninetyPrices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.55)" : "hsl(0, 80%, 48%, 0.55)"
     })
-    console.log(colors);
+    colors.shift();
     return colors
-    
-    
 };
 
 
-describe("testing price comparison", () => {
-    it("works for ninety days", () => {
-        const result = priceComparison(90);
-        expect(result).toHaveLength(90);
+export const borderColors = (days) => {
+
+       let ninetyPrices = filteredByDaysOpeningPrice(days + 1);
+    const colors = ninetyPrices.map((price, index) =>  {
+        if (index === 0) return;
+        return +ninetyPrices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.8)" : "hsl(0, 80%, 48%, 0.8)"
     })
+    colors.shift();
+    return colors
+};
 
 
-})
+// describe("testing price comparison", () => {
+//     it("works for ninety days", () => {
+//         const result = priceComparison(90);
+//         expect(result).toHaveLength(90);
+//     })
+
+// })
