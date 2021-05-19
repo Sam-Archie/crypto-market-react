@@ -5,7 +5,7 @@ import CoinModal from "../coinModal/CoinModal";
 const applciationCarousel = ({coinList}) => {
 
     return (
-   <>
+   <section id="coins">
        <Carousel className="carousel-application">
            {coinList.map((coin, index) => (
                <Carousel.Item className="flex-column" key={ index }>
@@ -17,7 +17,7 @@ const applciationCarousel = ({coinList}) => {
             </ Carousel.Item>
            ))}
        </Carousel>
-   </>
+   </section>
     );
 };
 
