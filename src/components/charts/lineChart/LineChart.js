@@ -1,17 +1,17 @@
 
 import { Tab, Tabs } from "react-bootstrap";
 import { Line } from "react-chartjs-2";
-import { graphicalData } from "../../../common/commonData";
+import { filteredByDaysOpeningPrice, filteredDays, todaysOpeningPrice } from "../../../common/commonData";
 
 const LineChart = ({ days }) => {
 
   const chartData = {
-      labels: graphicalData.filteredDates(days),
+      labels: filteredDays(days),
       datasets: [
           {
               type: "line",
               label: 'Price',
-              data: graphicalData.filteredOpeningPrice(days),
+              data: filteredByDaysOpeningPrice(days),
               fill: false,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -29,7 +29,7 @@ const LineChart = ({ days }) => {
     plugins: {
         title: {
         display: true,
-        text: `Todays Opening Price: ${graphicalData.todaysOpeningPrice()} USD`,
+        text: `Todays Opening Price: ${todaysOpeningPrice()} USD`,
       }
     },
     scales: {

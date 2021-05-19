@@ -1,58 +1,51 @@
 import { data } from "../data/json/data"
 
+export const coinPrices = () => data[timeSeries()]
 
-const timeSeries = ("Time Series (Digital Currency Daily)");
+export const openingPrices = () => Object.values(coinPrices()).map((date) => date['1b. open (USD)']);
 
-const bitCoin = data[timeSeries];
+export const today = () => new Date().toISOString().slice(0, 10);
 
-const openingPrices = Object.values(bitCoin).map((date) => date['1b. open (USD)']);
+export const timeSeries = () => "Time Series (Digital Currency Daily)";
 
-const lastNumOfPrices = (days) => openingPrices.filter((date, index) => index < days).reverse(); 
+export const coinInformation = () => data[timeSeries];
 
-const dates = Object.keys(bitCoin).map(date => date);
+export const dates = () => Object.keys(coinPrices()).map(date => date);
 
-const lastNumOfDays = (days) => dates.filter((date, index) => index < days).reverse();
+export const filteredDays = days => dates().filter((date, index) => index < days).reverse();
 
-const todaysOpeningPrice = () => openingPrices.filter((date, index) => index === 0)
-    
-export const graphicalData = {
+export const filteredByDaysOpeningPrice = days => openingPrices().filter((date, index) => index < days).reverse();
 
-    today: new Date().toISOString().slice(0, 10),
-
-    timeSeries: ("Time Series (Digital Currency Daily)"), 
-
-    coinInformation: data[timeSeries],
-
-    dates: Object.keys(bitCoin).map(date => date),
-
-    filteredDates: (days) => dates.filter((date, index) => index < days).reverse(),
-
-    filteredOpeningPrice: (days) => openingPrices.filter((date, index) => index < days).reverse(),
-
-    todaysOpeningPrice: () => openingPrices.filter((date, index) => index === 0),  
-
-    openingPrices: Object.values(bitCoin).map((date) => date['1b. open (USD)'])
-    
-}
+export const todaysOpeningPrice = () => openingPrices().filter((date, index) => index === 0);
  
-export const priceComparison = () => {
-    let ninetyPrices = graphicalData.filteredOpeningPrice(90);
-    console.log(ninetyPrices)
+export const graphColors = (days) => {
 
-    let colors = ninetyPrices.map((price, index) => {
-        return price[index] < price[index + 1] ? "red" : "green"
+       let ninetyPrices = filteredByDaysOpeningPrice(days + 1);
+    const colors = ninetyPrices.map((price, index) =>  {
+        if (index === 0) return;
+        return +ninetyPrices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.55)" : "hsl(0, 80%, 48%, 0.55)"
     })
+    colors.shift();
     return colors
+};
 
 
-    // let colors = [];
+export const borderColors = (days) => {
 
-    // for(let i = openingPrices.length; i <= openingPrices.length && i > 910; i -= 1)
-    // {
-    //     console.log(openingPrices[i])
+       let ninetyPrices = filteredByDaysOpeningPrice(days + 1);
+    const colors = ninetyPrices.map((price, index) =>  {
+        if (index === 0) return;
+        return +ninetyPrices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.8)" : "hsl(0, 80%, 48%, 0.8)"
+    })
+    colors.shift();
+    return colors
+};
 
-    //     openingPrices[i] > openingPrices[--i] ? colors.unshift("red") : 
-    //         openingPrices[i] === openingPrices[--i] ? colors.unshift("black") : colors.unshift("green");
-    // }
-    // return colors;
-}
+
+// describe("testing price comparison", () => {
+//     it("works for ninety days", () => {
+//         const result = priceComparison(90);
+//         expect(result).toHaveLength(90);
+//     })
+
+// })
