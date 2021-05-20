@@ -2,15 +2,15 @@ import { Tabs, Tab, Accordion, Button, Card, TabContainer} from 'react-bootstrap
 import { useState } from 'react';
 import BarChart from '../charts/barChart/BarChart';
 import LineChart from '../charts/lineChart/LineChart';
+import HealthKey from '../healthKey/HealthKey';
 
 const Coin = ({ info, healthData }) => {
 
   const [key, setKey] = useState("7")
-  
     return (
         <section className="modal_container">
           <article className="mt-4 mb-4">
-            <h2>Overview</h2>
+            <h2 className="title_text title_text--modal">Overview</h2>
             <p className="paragraph_text--small">
                 {info}
             </p>
@@ -18,7 +18,7 @@ const Coin = ({ info, healthData }) => {
 
           <section className="pt-4">
             <Accordion defaultActiveKey="">
-                  <h3>Price Information</h3>
+                  <h3 className="title_text title_text--modal">Price Information</h3>
                   <p>A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
               <Card>
 
@@ -66,6 +66,7 @@ const Coin = ({ info, healthData }) => {
                   </Accordion.Collapse>
               </Card>
             </Accordion>
+            <HealthKey/>
           </section>
 
       
