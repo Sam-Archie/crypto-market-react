@@ -11,9 +11,9 @@ const BarChart = ({ days }) => {
           {
               label: 'Price',
               data: dateFilteredOpeningPrices(days),
-              backgroundColor: graphColors(days),
+              backgroundColor: "hsl(0, 100%, 50%, 0)",
               borderColor: borderColors(days),
-              borderWidth: 1,
+              borderWidth: 2,
           }
       ]
   }
