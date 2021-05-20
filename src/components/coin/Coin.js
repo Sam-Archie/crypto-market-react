@@ -1,11 +1,11 @@
-import { Tabs, Tab, Accordion, Button, Card} from 'react-bootstrap';
+import { Tabs, Tab, Accordion, Button, Card, TabContainer} from 'react-bootstrap';
 import { useState } from 'react';
 import BarChart from '../charts/barChart/BarChart';
 import LineChart from '../charts/lineChart/LineChart';
 
 const Coin = ({ info, healthData }) => {
 
-  const [key, setKey] = useState("line")
+  const [key, setKey] = useState("7")
   
     return (
         <section className="modal_container">
@@ -22,14 +22,16 @@ const Coin = ({ info, healthData }) => {
                   <p>A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
               <Card>
 
-                <Accordion.Toggle className="mb-4 button btn-success" eventKey="0">
+                <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-success" eventKey="0">
                   Display as Line Chart
                 </Accordion.Toggle>
 
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>
-                    <Tabs
-                    onSelect={(key) => setKey(key)}>
+                    <Tabs id="linecharts" defaultActiveKey="7"
+                    activeKey={key}
+                    onSelect={(key) => setKey(key)}
+                    >
                       <Tab eventKey="7" title="7 Days">
                         <LineChart className="mt-4 mb-4" days={7}/>
                       </Tab>
@@ -42,13 +44,14 @@ const Coin = ({ info, healthData }) => {
                     </Tabs>
                   </Card.Body>
                 </Accordion.Collapse>
-                  <Accordion.Toggle className="mb-4" className="mb-4 button btn-success" eventKey="1">
+                  <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-success" eventKey="1">
                     Display as Bar Chart
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey="1">
                     <Card.Body>
                       <Tabs
-                        onSelect={(key) => setKey(key)}>
+                        // onSelect={(key) => setKey(key)}
+                        >
                       <Tab eventKey="7" title="7 Days">
                       <BarChart days={7}/>
                       </Tab>
