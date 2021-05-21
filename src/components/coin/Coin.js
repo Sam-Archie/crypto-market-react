@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BarChart from '../charts/barChart/BarChart';
 import LineChart from '../charts/lineChart/LineChart';
 import HealthKey from '../healthKey/HealthKey';
+import Health from '../health/Health';
 
 const Coin = ({ info, healthData }) => {
 
@@ -50,7 +51,6 @@ const Coin = ({ info, healthData }) => {
                   <Accordion.Collapse eventKey="1">
                     <Card.Body>
                       <Tabs
-                        // onSelect={(key) => setKey(key)}
                         >
                       <Tab eventKey="7" title="7 Days">
                       <BarChart days={7}/>
@@ -67,6 +67,7 @@ const Coin = ({ info, healthData }) => {
               </Card>
             </Accordion>
             <HealthKey/>
+            <Health/>
           </section>
 
       
