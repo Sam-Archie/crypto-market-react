@@ -26,4 +26,8 @@
     &--small {
         font-size: $small-font;
     }
+    &--rating {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
 }

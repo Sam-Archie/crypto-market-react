@@ -12,7 +12,7 @@ const Coin = ({ info, healthData }) => {
         <section className="modal_container">
           <article className="mt-4 mb-4">
             <h2 className="title_text title_text--modal">Overview</h2>
-            <p className="paragraph_text--small">
+            <p className="paragraph_text paragraph_text--small">
                 {info}
             </p>
           </article>
@@ -20,10 +20,10 @@ const Coin = ({ info, healthData }) => {
           <section className="pt-4">
             <Accordion defaultActiveKey="">
                   <h3 className="title_text title_text--modal">Price Information</h3>
-                  <p>A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
+                  <p className="paragraph_text paragraph_text--small mb-2">A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
               <Card>
 
-                <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-success" eventKey="0">
+                <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="0">
                   Display as Line Chart
                 </Accordion.Toggle>
 
@@ -45,7 +45,7 @@ const Coin = ({ info, healthData }) => {
                     </Tabs>
                   </Card.Body>
                 </Accordion.Collapse>
-                  <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-success" eventKey="1">
+                  <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="1">
                     Display as Bar Chart
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey="1">
@@ -66,8 +66,8 @@ const Coin = ({ info, healthData }) => {
                   </Accordion.Collapse>
               </Card>
             </Accordion>
-            <HealthKey/>
             <Health/>
+            <HealthKey/>
           </section>
 
       
