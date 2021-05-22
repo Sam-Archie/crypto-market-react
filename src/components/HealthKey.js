@@ -1,6 +1,5 @@
 import { Accordion, Card, ProgressBar } from 'react-bootstrap';
 
-
 const HealthKey = () => {
     return (
         <div className="mt-4">

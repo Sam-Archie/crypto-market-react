@@ -16,12 +16,12 @@ const Contact = () => {
     const handleMessage = (e) => setMessage(e.currentTarget.value)
 
     const handleSubmit = (e) => {
-        const data = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            message: message,
-        }
+        // const data = {
+        //     firstName: firstName,
+        //     lastName: lastName,
+        //     email: email,
+        //     message: message,
+        // }
         e.preventDefault();
 
         // POST the form data via axios

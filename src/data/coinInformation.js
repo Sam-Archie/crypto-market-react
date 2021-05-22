@@ -1,11 +1,10 @@
+import bitcoinImage from "../assets/images/Bitcoin.jpg";
+import dogeCoinImage from "../assets/images/Dogecoin.jpg";
+import ethereumImage from "../assets/images/Ethereum.jpg";
+import binanceCoinImage from "../assets/images/BinanceCoin.jpeg";
+import tetherImage from "../assets/images/Tether.jpg";
 
-import bitcoinImage from "../../assets/images/Bitcoin.jpg";
-import dogeCoinImage from "../../assets/images/Dogecoin.jpg";
-import ethereumImage from "../../assets/images/Ethereum.jpg";
-import binanceCoinImage from "../../assets/images/BinanceCoin.jpeg";
-import tetherImage from "../../assets/images/Tether.jpg";
-
-export const coinInfo = [
+export const coinInformation = [
     {
         name: "Bitcoin",
         info: "Bitcoin (₿) is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto. The currency began use in 2009[14] when its implementation was released as open-source software. Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries. Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain.",
@@ -15,7 +14,7 @@ export const coinInfo = [
     {
         name: "Ethereum",
         info: "Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether (ETH) is the native cryptocurrency of the platform. It is the second-largest cryptocurrency by market capitalization, after Bitcoin.[1] Ethereum is the most actively used blockchain.Ethereum was proposed in 2013 by programmer Vitalik Buterin. Development was crowdfunded in 2014, and the network went live on 30 July 2015, with an initial supply of 72 million coins. The platform allows developers to build and operate decentralized applications that users can interact with. Decentralized finance (DeFi) applications provide a broad array of financial services without the need for typical financial intermediaries such as brokerages, exchanges, or banks, such as allowing cryptocurrency users to borrow against their holdings or lend them out for interest. Ethereum also allows for the creation and exchange of NFTs, which are non-interchangeable tokens that can be connected to digital works of art or other real-world items and sold as unique digital property. Additionally, many other cryptocurrencies operate as ERC-20 tokens on top of the Ethereum blockchain and have utilized it for initial coin offerings.",
-        shortHand: "ETG",
+        shortHand: "ETH",
         imagePath: ethereumImage
     },
     {
