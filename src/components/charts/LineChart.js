@@ -12,7 +12,7 @@ const LineChart = ({days, dates, prices}) => {
     
         const borderColors = prices.map((price, index) =>  {
             if (index === 0) return;
-            return +prices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.8)" : "hsl(0, 80%, 48%, 0.8)"
+            return +prices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.8)" : "hsl(0, 80%, 48%, 0.8)";
         })
         
         borderColors.shift();

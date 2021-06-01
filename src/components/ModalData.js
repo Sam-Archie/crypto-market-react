@@ -74,7 +74,7 @@ const ModalData = ({ description, shortHand }) => {
             {!apiReturn ? 
                 <>
                     <Spinner className="mx-4" animation="border" variant="secondary"/>
-                    <p className="title_text title_text--modal mt-4">Loading</p>
+                    <p className="title_text title_text--modal mt-4">Loading, please be aware that calls to this data are limited to five times per minute. If you go over this then please just be patient as the data will load once the timer has reset.</p>
                 </> : 
                     <>
                         <article className="mt-4 mb-4">
