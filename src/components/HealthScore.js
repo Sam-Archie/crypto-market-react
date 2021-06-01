@@ -2,7 +2,7 @@ import { Card, ProgressBar } from 'react-bootstrap';
 
 const HealthScore = ({ scores }) => {
 
-
+    
     const name = scores[1];
     const fcasRating = scores[2];
     const fcasScore = scores[3];
