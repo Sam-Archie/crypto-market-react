@@ -5,65 +5,70 @@ import LineChart from './charts/LineChart';
 import BarChart from './charts/BarChart';
 import HealthKey from './HealthKey';
 import HealthScore from './HealthScore';
-
+import ErrorPage from "./ErrorPage"
 
 const ModalData = ({ description, shortHand }) => {
+    //State
+
     const [key, setKey] = useState("7")
     const [coinPrices, setCoinPrices] = useState([]);
     const [datePoints, setDatePoints] = useState([]);
     const [healthScores, setHealthScores] = useState([]);
     const [apiReturn, setApiReturn] = useState(false);
+    const [healthDataSuccess, setHealthDataSuccess] = useState(false)
+    const [priceDataSuccess, setPriceDataSuccess] = useState(false)
     
+//Api calls
 
-    const getApiData = async () => {
-
-
-        const priceReturn = await axios.get(`query?function=DIGITAL_CURRENCY_DAILY&symbol=${shortHand}&market=USD&apikey=F5YQIALXG6VW0QEW`);
-        const healthReturn = await axios.get(`query?function=CRYPTO_RATING&symbol=${shortHand}&apikey=FT8LTPYM6HXLP8GP`);
-
-        if (priceReturn || healthReturn === null) {
-            console.log("error");
+    const getApiHealthData = async () => {
+        
+        try {
+            const healthReturn = await axios.get(`query?function=CRYPTO_RATING&symbol=${shortHand}&apikey=FT8LTPYM6HXLP8GP`);
+            if(healthReturn === Object.keys(healthReturn).length === 0 && healthReturn.constructor === Object) {
+                setHealthDataSuccess(false);
+            } else {
+                const rating = "Crypto Rating (FCAS)";
+                const cryptoRatings = await healthReturn.data[rating];
+                const ratingScores = await Object.values(cryptoRatings);
+                setHealthScores(ratingScores);
+                setApiReturn(true);
+                setHealthDataSuccess(true); 
+            }
         }
-
-
-        // Create a variable to use as a filter
-        const timeSeries = "Time Series (Digital Currency Daily)";
-        const rating = "Crypto Rating (FCAS)";
-
-        // Filter the API return based on the above variable
-        const filteredApiPriceData = priceReturn.data[timeSeries];
-        const cryptoRatings = healthReturn.data[rating];
-
-        // Access just the prices from the API return and put them into an array
-        const historicOpeningPrices = Object.values(filteredApiPriceData).map((date) => date['1b. open (USD)']);
-        // Access just the dates from the API return and store them in an array
-        const dates = Object.keys(filteredApiPriceData).map(date => date);
-
-        // Access just the datasets in the health return and store in an array
-        const ratingFields = Object.keys(cryptoRatings)
-        // Access just just scores in the health return and store in an array
-        const ratingScores = Object.values(cryptoRatings)
-
-        // Get todays date
-        const today = new Date().toISOString().slice(0, 10);
-
-
-    
-      setCoinPrices(historicOpeningPrices);
-      setDatePoints(dates);
-      setHealthScores(ratingScores);
-      
-      setApiReturn(true);
+        catch(error) {
+            console.log(error)
+        }
     }
+    
+    const getPriceApiData = async () => {
+        try {
+            const priceReturn = await axios.get(`query?function=DIGITAL_CURRENCY_DAILY&symbol=${shortHand}&market=USD&apikey=F5YQIALXG6VW0QEW`);
+            if (priceReturn === Object.keys(priceReturn).length === 0 && priceReturn.constructor === Object) {
+                setPriceDataSuccess(false)
+            } else {
+                const timeSeries = "Time Series (Digital Currency Daily)";
+                const filteredApiPriceData = await priceReturn.data[timeSeries];
+                const dates = await Object.keys(filteredApiPriceData).map(date => date);
+                const historicOpeningPrices = await Object.values(filteredApiPriceData).map((date) => date['1b. open (USD)']);
+                setCoinPrices(historicOpeningPrices);
+                setDatePoints(dates);
+                setApiReturn(true);
+                setPriceDataSuccess(true)
+            }
+        }
+        catch(error) {
+            console.log(error);
+        }
+    }  
   
+    //Functions called on render
     useEffect(() => {
-      getApiData() 
+      getPriceApiData();
+      getApiHealthData();
   
     },[])
-  
-  
-  
-  
+
+    
       return (
         <section className="modal_container">
             {!apiReturn ? 
@@ -80,7 +85,8 @@ const ModalData = ({ description, shortHand }) => {
                         </article>
 
                         <section className="pt-4">
-                        <Accordion defaultActiveKey="">
+            
+                        {priceDataSuccess ? <Accordion defaultActiveKey="">
                                 <h3 className="title_text title_text--modal">Price Information</h3>
                                 <p className="paragraph_text paragraph_text--small mb-2">A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
                             <Card>
@@ -127,14 +133,12 @@ const ModalData = ({ description, shortHand }) => {
                                 </Card.Body>
                                 </Accordion.Collapse>
                             </Card>
-                        </Accordion>
-                        <HealthScore scores={healthScores}/>
+                        </Accordion> : <ErrorPage />}
+                     {healthDataSuccess ? <HealthScore scores={healthScores}/> : <ErrorPage />}
                         <HealthKey/>
                         </section>
                         </>
             }
-  
-        
             </section>
           );
           

@@ -30,6 +30,7 @@ const CoinData = ({name, description, shortHand }) => {
  
     </>
   );
+  
 }
 
 export default CoinData;
