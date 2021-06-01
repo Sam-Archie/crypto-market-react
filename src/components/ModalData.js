@@ -1,16 +1,15 @@
 import { Tabs, Tab, Accordion, Card, Spinner} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from '../axios';
-import LineChart from './charts/LineChart';
-import BarChart from './charts/BarChart';
 import HealthKey from './HealthKey';
 import HealthScore from './HealthScore';
 import ErrorPage from "./ErrorPage"
+import LineChartTabs from './tabs/LineChartTabs';
+import BarChartTabs from './tabs/BarChartTabs';
 
 const ModalData = ({ description, shortHand }) => {
     //State
 
-    const [key, setKey] = useState("7")
     const [coinPrices, setCoinPrices] = useState([]);
     const [datePoints, setDatePoints] = useState([]);
     const [healthScores, setHealthScores] = useState([]);
@@ -90,49 +89,29 @@ const ModalData = ({ description, shortHand }) => {
                                 <h3 className="title_text title_text--modal">Price Information</h3>
                                 <p className="paragraph_text paragraph_text--small mb-2">A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
                             <Card>
-            
+
                             <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="0">
                                 Display as Line Chart
                             </Accordion.Toggle>
-            
+
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
-                                <Tabs id="linecharts" defaultActiveKey="7"
-                                activeKey={key}
-                                onSelect={(key) => setKey(key)}
-                                >
-                                    <Tab eventKey="7" title="7 Days">
-                                    <LineChart className="mt-4 mb-4" days={7} dates={datePoints} prices={coinPrices}/>
-                                    </Tab>
-                                    <Tab eventKey="30" title="30 Days">
-                                    <LineChart days={30} dates={datePoints} prices={coinPrices}/>
-                                    </Tab>
-                                    <Tab eventKey="90" title="90 Days">
-                                    <LineChart days={90} dates={datePoints} prices={coinPrices}/>
-                                    </Tab>
-                                </Tabs>
+                                    <LineChartTabs coinPrices={coinPrices} dates={datePoints}/>
                                 </Card.Body>
                             </Accordion.Collapse>
+
                                 <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="1">
                                 Display as Bar Chart
                                 </Accordion.Toggle>
+
                                 <Accordion.Collapse eventKey="1">
                                 <Card.Body>
-                                    <Tabs
-                                    >
-                                    <Tab eventKey="7" title="7 Days">
-                                    <BarChart days={7} dates={datePoints} prices={coinPrices}/>
-                                    </Tab>
-                                    <Tab eventKey="30" title="30 Days">
-                                    <BarChart days={30} dates={datePoints} prices={coinPrices}/>
-                                    </Tab>
-                                    <Tab eventKey="90" title="90 Days">
-                                    <BarChart days={90} dates={datePoints} prices={coinPrices}/>
-                                    </Tab>
-                                </Tabs>
+                                    <BarChartTabs coinPrices={coinPrices} dates={datePoints}/>
                                 </Card.Body>
                                 </Accordion.Collapse>
+
                             </Card>
+
                         </Accordion> : <ErrorPage />}
                      {healthDataSuccess ? <HealthScore scores={healthScores}/> : <ErrorPage />}
                         <HealthKey/>
