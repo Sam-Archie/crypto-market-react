@@ -3,3 +3,13 @@
 @import 'typography';
 @import 'button';
 @import 'patternLib';
+@import 'images';
+@import "carousel";
+@import 'modal';
+@import 'navbar';
+@import 'ratings';
+
+* {
+    box-sizing: border-box;
+}
+

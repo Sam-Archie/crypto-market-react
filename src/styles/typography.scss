@@ -6,13 +6,28 @@
 .title_text {
     font-size: $large-font;
     font-family: $title-font;
+    &--small {
+        font-size: $medium-font;
+    }
+    &--hero {
+        position: absolute;
+        z-index: 1;
+        margin: 10%;
+        color: $off-white;
+    }
+    &--modal {
+        font-size: 1.35rem;
+    }
 }
 
 .paragraph_text {
     font-size: $medium-font;
     font-family: $content-font;
-
     &--small {
         font-size: $small-font;
+    }
+    &--rating {
+        font-size: 1.2rem;
+        font-weight: bold;
     }
 }
