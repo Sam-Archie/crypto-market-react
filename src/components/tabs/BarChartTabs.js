@@ -1,7 +1,7 @@
 import React from 'react';
 import BarChart from '../charts/BarChart';
 import { Tabs, Tab } from 'react-bootstrap';
-import { useState } from "react";
+
 
 const BarChartTabs = ({coinPrices, dates }) => {
     return (

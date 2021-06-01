@@ -38,7 +38,7 @@ const ModalData = ({ description, shortHand }) => {
             console.log(error)
         }
     }
-    
+
     const getPriceApiData = async () => {
         try {
             const priceReturn = await axios.get(`query?function=DIGITAL_CURRENCY_DAILY&symbol=${shortHand}&market=USD&apikey=F5YQIALXG6VW0QEW`);
@@ -59,68 +59,68 @@ const ModalData = ({ description, shortHand }) => {
             console.log(error);
         }
     }  
-  
+
     //Functions called on render
     useEffect(() => {
-      getPriceApiData();
-      getApiHealthData();
-  
+        getPriceApiData();
+        getApiHealthData();
+
     },[])
 
-    
-      return (
-        <section className="modal_container">
-            {!apiReturn ? 
+
+    return (
+    <section className="modal_container">
+        {!apiReturn ? 
+            <>
+                <Spinner className="mx-4" animation="border" variant="secondary"/>
+                <p className="title_text title_text--modal mt-4">Loading, please be aware that calls to this data are limited to five times per minute. If you go over this then please just be patient as the data will load once the timer has reset.</p>
+            </> : 
                 <>
-                    <Spinner className="mx-4" animation="border" variant="secondary"/>
-                    <p className="title_text title_text--modal mt-4">Loading, please be aware that calls to this data are limited to five times per minute. If you go over this then please just be patient as the data will load once the timer has reset.</p>
-                </> : 
-                    <>
-                        <article className="mt-4 mb-4">
-                        <h2 className="title_text title_text--modal">Overview</h2>
-                        <p className="paragraph_text paragraph_text--small">
-                            {description}
-                        </p>
-                        </article>
+                <article className="mt-4 mb-4">
+                <h2 className="title_text title_text--modal">Overview</h2>
+                <p className="paragraph_text paragraph_text--small">
+                    {description}
+                </p>
+                </article>
+                <section className="pt-4">
+                { priceDataSuccess ? 
+                
+                <Accordion defaultActiveKey="">
+                        <h3 className="title_text title_text--modal">Price Information</h3>
+                        <p className="paragraph_text paragraph_text--small mb-2">A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
+                    <Card>
 
-                        <section className="pt-4">
-            
-                        {priceDataSuccess ? <Accordion defaultActiveKey="">
-                                <h3 className="title_text title_text--modal">Price Information</h3>
-                                <p className="paragraph_text paragraph_text--small mb-2">A collection of historical opening prices in USD over the last 7, 30 and 90 day periods.</p>
-                            <Card>
+                    <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="0">
+                        Display as Line Chart
+                    </Accordion.Toggle>
 
-                            <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="0">
-                                Display as Line Chart
-                            </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                        <Card.Body>
+                            <LineChartTabs coinPrices={coinPrices} dates={datePoints}/>
+                        </Card.Body>
+                    </Accordion.Collapse>
 
-                            <Accordion.Collapse eventKey="0">
-                                <Card.Body>
-                                    <LineChartTabs coinPrices={coinPrices} dates={datePoints}/>
-                                </Card.Body>
-                            </Accordion.Collapse>
+                        <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="1">
+                        Display as Bar Chart
+                        </Accordion.Toggle>
 
-                                <Accordion.Toggle className="mb-4 mt-4 mx-4 button btn-outline-dark" eventKey="1">
-                                Display as Bar Chart
-                                </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                        <Card.Body>
+                            <BarChartTabs coinPrices={coinPrices} dates={datePoints}/>
+                        </Card.Body>
+                    </Accordion.Collapse>
 
-                                <Accordion.Collapse eventKey="1">
-                                <Card.Body>
-                                    <BarChartTabs coinPrices={coinPrices} dates={datePoints}/>
-                                </Card.Body>
-                                </Accordion.Collapse>
-
-                            </Card>
-
-                        </Accordion> : <ErrorPage />}
-                     {healthDataSuccess ? <HealthScore scores={healthScores}/> : <ErrorPage />}
-                        <HealthKey/>
-                        </section>
-                        </>
-            }
+                    </Card>
+                    
+                </Accordion> : <ErrorPage />
+                }
+                {healthDataSuccess ? <HealthScore scores={healthScores}/> : <ErrorPage />}
+                <HealthKey/>
             </section>
-          );
-          
-      }
+            </>
+        }
+    </section>
+    );
+}
 
 export default ModalData;
