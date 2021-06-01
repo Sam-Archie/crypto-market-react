@@ -1,4 +1,4 @@
-import { Tabs, Tab, Accordion, Card, Spinner} from 'react-bootstrap';
+import { Tab, Accordion, Card, Spinner} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from '../axios';
 import HealthKey from './HealthKey';
@@ -111,7 +111,7 @@ const ModalData = ({ description, shortHand }) => {
                     </Accordion.Collapse>
 
                     </Card>
-                    
+
                 </Accordion> : <ErrorPage />
                 }
                 {healthDataSuccess ? <HealthScore scores={healthScores}/> : <ErrorPage />}
