@@ -10,7 +10,7 @@ const BarChart = ({ days, prices, dates }) => {
         const borderColors = (days) => {
         const prices = dateFilteredOpeningPrices(days + 1);
     
-        const borderColors = prices.map((price, index) =>  {
+        const borderColors = prices.map((price, index) => {
             if (index === 0) return;
             return +prices[index - 1] < +price ? "hsl(137, 62%, 35%, 0.8)" : "hsl(0, 80%, 48%, 0.8)"
         })

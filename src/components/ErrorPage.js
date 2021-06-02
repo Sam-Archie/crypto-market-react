@@ -3,9 +3,10 @@ import React from 'react';
 const ErrorPage = () => {
     return (
         <div>
-            <p className="title_text title_text--modal mt-4">Unfortunaltely an external error has meant that we cannot retireve the data to display the currencies health at the moment. Below is a link to more information on crypto analytics.</p>
+            <p className="title_text title_text--modal mt-4">Unfortunately we cannot retrieve the data you are looking for, this is likely an issue with the source data - please try again later.</p>
+            <p className="title_text title_text--modal mt-4">For more information on crypto check out <a href="https://www.cryptodatadownload.com/">crypto analytics</a>.</p>
         
-            <a href="https://www.cryptodatadownload.com/">external-info</a>
+            
         </div>
     );
 };

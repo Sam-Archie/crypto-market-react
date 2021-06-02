@@ -1,4 +1,4 @@
-import { Tab, Accordion, Card, Spinner} from 'react-bootstrap';
+import { Accordion, Card, Spinner} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from '../axios';
 import HealthKey from './HealthKey';
@@ -65,7 +65,7 @@ const ModalData = ({ description, shortHand }) => {
         getPriceApiData();
         getApiHealthData();
 
-    },[])
+    })
 
 
     return (
