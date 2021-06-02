@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Crypto Market Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app displays some easy to digest data on the following cryptocurrencies: Bitcoin, Ethereum, Binance-Coin, Dogecoin & Tether. 
 
-## Available Scripts
+The data is sourced from the Alpha-Vantage free API (which is limited to the number of calls it can make) and then it is presented in easily digested, visually pleasing graphs to show the price data from the last 7, 30 and 90 days.
 
-In the project directory, you can run:
+## How to run it locally
 
-### `npm start`
+To run the project locally the following commands need to be executed:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### git clone git@github.com:Sam-Archie/crypto-market-react.git {directory-name} 
+This will clone the project into the specified directory
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### NPM install
+This installs the packages required to make the app run
 
-### `npm test`
+### NPM start
+Boots the site in the local environment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About the build
 
-### `npm run build`
+The app is built using react and styled using a combination of React Bootstrap components, chartJS and some custom SCSS. The API data is drawn down from a free resource at Alpha-Vantage which provides all the market data that the app renders.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Improvements list
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Error Handling - currently the app does handle errors from the API return but they could be improved to create a sleeker user experience
+2. Scaling the app - due to the limitation of the free API the number of currencies is limited to 5, in an ideal world the app would allow the user to determine which data to fetch.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
