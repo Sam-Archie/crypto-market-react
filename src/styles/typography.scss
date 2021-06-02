@@ -20,6 +20,11 @@
     }
 }
 
+.hero_text_alternate {
+    font-size: $large-font;
+    font-family: $title-font;
+}
+
 .paragraph_text {
     font-size: $medium-font;
     font-family: $content-font;
@@ -29,5 +34,34 @@
     &--rating {
         font-size: 1.2rem;
         font-weight: bold;
+    }
+}
+
+@media (max-width: $breakpoint--lg) {
+    .title_text--hero {
+        font-size: 1.4rem;
+    }
+
+}
+
+@media (max-width: $breakpoint--md) {
+    .title_text {
+        display: none;
+    }
+}
+
+@media (min-width: $breakpoint--md) {
+    .hero_text_alternate {
+        display: none;
+    }
+}
+
+@media (max-width: 570px) {
+    .title_text--hero {
+        font-size: 0.9rem;
+    }
+
+    .title_text--small {
+        font-size: 1rem;
     }
 }
